@@ -1,19 +1,3 @@
-None selected 
-
-Skip to content
-Using Gmail with screen readers
-in:sent 
-8 of 16
-nodea
-
-toji <v42be7a1@gmail.com>
-Attachments
-Tue, Jul 8, 2025, 7:57 PM
-to M
-
-
- 6 Attachments
-  •  Scanned by Gmail
 #include<lpc21xx.h>
 #include"header.h"
 
@@ -82,6 +66,3 @@ int main()
 	
 	}
 }
-
-main_nodeA.c
-Displaying main_nodeA.c.
