@@ -1,12 +1,24 @@
-#ifndef HEAD_H
-#define HEAD_H
+#ifndef HE_DR
+#define HE_DR
 
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
 
-extern void cmd_rmv(FILE *f1 , FILE *f2);
-extern void macro(FILE *f1 , FILE *f2);
-extern void header_include(FILE *tp1, FILE *tp2);
+typedef struct student
+{
+	int r_no;
+	char name[20];
+	float mark;
+	struct student *next;
+}sll;
+
+void sort(sll *ptr);
+void exit_(sll *ptr);
+void modify(sll **ptr);
+void delete_node(sll **ptr);
+int count(sll *ptr);
+void print(sll *ptr);
+void add_student_deatils_begin(sll **ptr);
 
 #endif
