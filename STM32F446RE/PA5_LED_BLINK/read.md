@@ -1,8 +1,8 @@
-# STM32F446RE Projects
+# STM32F446RE 
+##PA5 BLINKING PROJECT
 
-This repository contains my STM32F446RE embedded systems projects developed using **Embedded C** and **STM32CubeIDE**.
 
----
+<img width="1570" height="879" alt="image" src="https://github.com/user-attachments/assets/d076a2ec-3d0f-4c57-b31d-4750f4ac2daa" />
 
 ## Hardware
 
