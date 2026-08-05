@@ -9,7 +9,9 @@
 #### 6. The Cortex-M4 core features afloating point unit (FPU) single precision supporting all Arm® single-precision data-processing instructions and data types. It also implements a full set of DSP instructions and a memory protection unit (MPU) that enhances application security. 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 FPU = Floating Point Unit.
+
 (It is a dedicated hardware unit that performs decimal (floating-point) calculations.
+
 Without an FPU.
 float c = a * b; //The CPU performs the calculation using software libraries, which is slower.
 With an FPU.
