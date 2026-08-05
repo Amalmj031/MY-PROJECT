@@ -1,5 +1,18 @@
 ## STM32F446RE
 ---------------
+
+                  STM32F446RE
+
+          +-----------------------+
+          |   Cortex-M4 CPU       |
+          |      32-bit RISC      |
+          +----------+------------+
+                     |
+        -------------------------------
+        |             |              |
+      FPU           DSP            MPU
+ (Float math)  (Signal processing) (Memory protection)
+
 ### -> Feature
 #### 1. STM32F446xC/E devices This refers to the STM32F446 family of microcontrollers (such as STM32F446RE).
 #### 2. Based on Arm Cortex-M4 The CPU (processor) inside the microcontroller is the Arm Cortex-M4.
