@@ -8,11 +8,11 @@
 #### 5. Operating up to 180 MHz The processor can run at a maximum clock speed of 180 million cycles per second. 
 #### 6. The Cortex-M4 core features afloating point unit (FPU) single precision supporting all Arm® single-precision data-processing instructions and data types. It also implements a full set of DSP instructions and a memory protection unit (MPU) that enhances application security. 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
-FPU = Floating Point Unit
+FPU = Floating Point Unit.
 (It is a dedicated hardware unit that performs decimal (floating-point) calculations.
-Without an FPU:
+Without an FPU.
 float c = a * b; //The CPU performs the calculation using software libraries, which is slower.
-With an FPU:
-float temperature = 36.75f;
+With an FPU.
+float temperature = 36.75f.
 float speed = 23.5f;  //The calculation is performed directly in hardware, making it much faster.
 ------------------------------------------------------------------------------------------------------------------------------------------------------
