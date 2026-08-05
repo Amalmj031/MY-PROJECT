@@ -48,5 +48,14 @@ sum += a[i] * b[i];
 The DSP instructions can perform this type of operation much faster than a general-purpose CPU.  
 
  -> a memory protection unit (MPU) that enhances application security.   
+ The MPU lets you define rules about which parts of memory can be accessed.  
+
+Memory Region           Permission  
+_____________          ____________
+Flash                 	Read only  
+RAM                   	Read/Write  
+Peripheral registers	  Privileged access  
+Bootloader	            Protected  
+ 
 
 
