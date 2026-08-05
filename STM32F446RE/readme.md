@@ -23,9 +23,9 @@
 #### 4. RISC (Reduced Instruction Set Computer) Uses a small, efficient instruction set. Most instructions execute quickly, often in a single clock cycle.
 #### 5. Operating up to 180 MHz The processor can run at a maximum clock speed of 180 million cycles per second. 
 #### 6. The Cortex-M4 core features  
-### -> floating point unit (FPU) single precision supporting all Arm®  
-### -> single-precision data-processing instructions and data types. It also implements a full set of DSP instructions  
-### -> a memory protection unit (MPU) that enhances application security. 
+ -> floating point unit (FPU) single precision supporting all Arm®  
+ -> single-precision data-processing instructions and data types. It also implements a full set of DSP instructions  
+ -> a memory protection unit (MPU) that enhances application security. 
 
 FPU = Floating Point Unit. (It is a dedicated hardware unit that performs decimal (floating-point) calculations.  
 Without an FPU.  
