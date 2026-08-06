@@ -1347,3 +1347,26 @@ No. The STM32F446RE has 4 SPI hardware peripherals: SPI1, SPI2, SPI3, and SPI4. 
 can be configured to operate in I2S   mode for digital audio communication. Therefore, the "3 I2S peripherals" are not additional hardware;  
 they are alternate operating modes of three   of the SPI peripherals.  
 
+### 16. Four USARTs plus two UARTs
+
+    4 USART + 2 UART = 6 Serial Communication Peripherals
+    
+STM32F446RE Serial Peripherals  
+
+USART Peripherals  
+USART1  
+USART2  
+USART3  
+USART6  
+
+These support:  
+
+Asynchronous mode  
+Synchronous mode  
+UART Peripherals  
+UART4  
+UART5  
+
+These support:  
+
+Asynchronous mode only  
