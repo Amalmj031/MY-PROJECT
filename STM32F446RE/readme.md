@@ -1370,3 +1370,68 @@ UART5
 These support:  
 
 Asynchronous mode only  
+
+             STM32F446RE
+
+        ┌────────────────────┐
+        │    USART1          │
+        │    USART2          │
+        │    USART3          │
+        │    USART6          │
+        └────────────────────┘
+
+        ┌────────────────────┐
+        │     UART4          │
+        │     UART5          │
+        └────────────────────┘
+
+USART Register Block
+
+    USART1
+    │
+    ├── SR      (Status Register)
+    ├── DR      (Data Register)
+    ├── BRR     (Baud Rate Register)
+    ├── CR1     (Control Register 1)
+    ├── CR2     (Control Register 2)
+    ├── CR3     (Control Register 3)
+    ├── GTPR    (Guard Time & Prescaler Register)
+
+UART Register Block
+
+    UART4
+    │
+    ├── SR
+    ├── DR
+    ├── BRR
+    ├── CR1
+    ├── CR2
+    ├── CR3
+    └── GTPR
+
+### 17. An USB OTG full-speed and an USB OTG high-speed with full-speed capability (with the ULPI), both with dedicated power rails allowing to use          them throughout the whole power range  
+
+### 18. Two CANs  
+
+### 19. Two SAIs serial audio interfaces: to achieve audio class accuracy, the SAIs can be
+clocked via a dedicated internal audio PLL
+
+### 20.SDIO/MMC interface  
+
+SDIO/MMC Interface  
+
+This means the STM32F446RE has a dedicated SDIO peripheral that can communicate with:  
+
+SD Cards (Secure Digital Cards)  
+MMC Cards (MultiMedia Cards)  
+
+### 21. Camera interface
+
+### 22. HDMI-CEC
+
+
+
+
+
+
+
