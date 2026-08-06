@@ -687,101 +687,101 @@ It is a dedicated peripheral that continuously counts:
           Keeps Time & Date
 
 
-RTC Peripheral
-0x40002800
-│
-├── TR       (Time Register)
-├── DR       (Date Register)
-├── CR       (Control Register)
-├── ISR      (Initialization & Status Register)
-├── PRER     (Prescaler Register)
-├── WUTR     (Wakeup Timer Register)
-├── ALRMAR   (Alarm A Register)
-├── ALRMBR   (Alarm B Register)
-├── WPR      (Write Protection Register)
-├── SSR      (Sub-Second Register)
-└── SHIFTR   (Shift Control Register)
+RTC Peripheral  
+0x40002800  
+│  
+├── TR       (Time Register)  
+├── DR       (Date Register)  
+├── CR       (Control Register)  
+├── ISR      (Initialization & Status Register)  
+├── PRER     (Prescaler Register)  
+├── WUTR     (Wakeup Timer Register)  
+├── ALRMAR   (Alarm A Register)   
+├── ALRMBR   (Alarm B Register)  
+├── WPR      (Write Protection Register)  
+├── SSR      (Sub-Second Register)  
+└── SHIFTR   (Shift Control Register)  
 
-#define RTC_BASE  (0x40002800UL)
+#define RTC_BASE  (0x40002800UL)  
 
-#define RTC ((RTC_TypeDef *) RTC_BASE)
+#define RTC ((RTC_TypeDef *) RTC_BASE)  
 
-RTC is a pointer to the RTC peripheral's base address.
+RTC is a pointer to the RTC peripheral's base address.  
 
-RTC->TR;        // Time Register
-RTC->DR;        // Date Register
-RTC->CR;        // Control Register
-RTC->ISR;       // Initialization & Status Register
-RTC->PRER;      // Prescaler Register
-RTC->ALRMAR;    // Alarm A Register
-RTC->WUTR;      // Wake-up Timer Register
+RTC->TR;        // Time Register  
+RTC->DR;        // Date Register  
+RTC->CR;        // Control Register  
+RTC->ISR;       // Initialization & Status Register  
+RTC->PRER;      // Prescaler Register  
+RTC->ALRMAR;    // Alarm A Register  
+RTC->WUTR;      // Wake-up Timer Register  
 
     
-### 13. Twelve general-purpose 16-bit timers
-STM32F446RE contains 12 timer peripherals, and most of them have a 16-bit counter that can count from 0 to 65,535.
+### 13. Twelve general-purpose 16-bit timers  
+STM32F446RE contains 12 timer peripherals, and most of them have a 16-bit counter that can count from 0 to 65,535.  
 
-<img width="988" height="912" alt="image" src="https://github.com/user-attachments/assets/5601ee49-985a-40a4-975c-22e54e9e21c4" />
+<img width="988" height="912" alt="image" src="https://github.com/user-attachments/assets/5601ee49-985a-40a4-975c-22e54e9e21c4" />  
 
-STM32F446RE Timers
+STM32F446RE Timers  
 
-Advanced Timers (16-bit)
-├── TIM1
-└── TIM8
-Used for:
+Advanced Timers (16-bit)  
+├── TIM1  
+└── TIM8  
+Used for:  
 
-->Motor control
-->Complementary PWM
-->Dead-time insertion
-->Break input
+->Motor control  
+->Complementary PWM  
+->Dead-time insertion  
+->Break input  
 
-General-Purpose Timers (32-bit)
-├── TIM2
-└── TIM5
-Used for:
+General-Purpose Timers (32-bit)  
+├── TIM2  
+└── TIM5  
+Used for:  
 
-->Long delays
-->Frequency measurement
-->Event counting
-->PWM generation
+->Long delays  
+->Frequency measurement  
+->Event counting  
+->PWM generation  
 
-General-Purpose Timers (16-bit)
-├── TIM3
-├── TIM4
-├── TIM9
-├── TIM10
-├── TIM11
-├── TIM12
-├── TIM13
-└── TIM14
-Used for:
+General-Purpose Timers (16-bit)  
+├── TIM3  
+├── TIM4  
+├── TIM9  
+├── TIM10  
+├── TIM11  
+├── TIM12  
+├── TIM13  
+└── TIM14  
+Used for:  
 
-->Delay generation
-->PWM
-->Input Capture
-->Output Compare
-->Periodic interrupts
+->Delay generation  
+->PWM  
+->Input Capture  
+->Output Compare  
+->Periodic interrupts  
 
-Basic Timers (16-bit)
-├── TIM6
-└── TIM7
-Used for:
+Basic Timers (16-bit)  
+├── TIM6  
+└── TIM7  
+Used for:  
 
-->Simple time base generation
-->DAC triggering
-->Periodic interrupts
-->No input/output channels
+->Simple time base generation  
+->DAC triggering  
+->Periodic interrupts  
+->No input/output channels  
 
 
-Why is it called a 16-bit Timer?
+Why is it called a 16-bit Timer?  
 
-The timer has a 16-bit counter register (CNT).
-A 16-bit register can store:
-0000 0000 0000 0000 = 0
+The timer has a 16-bit counter register (CNT).  
+A 16-bit register can store:  
+0000 0000 0000 0000 = 0  
 
-to
+to  
 
-1111 1111 1111 1111 = 65535
-0 → 65535
-After reaching 65535, it overflows and starts again from 0.
+1111 1111 1111 1111 = 65535  
+0 → 65535  
+After reaching 65535, it overflows and starts again from 0.  
 
 
