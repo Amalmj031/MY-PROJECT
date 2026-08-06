@@ -784,4 +784,387 @@ to
 0 → 65535  
 After reaching 65535, it overflows and starts again from 0.  
 
+```text
+================ STM32 TIMER (TIMx) REGISTERS ================
+
+1. CR1 (Control Register 1)
+--------------------------------------------------------------
+Bit Name     Description
+--------------------------------------------------------------
+CEN          Counter Enable
+             0 = Stop Timer
+             1 = Start Timer
+
+UDIS         Update Disable
+             Disable Update Event
+
+URS          Update Request Source
+             Select Update Source
+
+OPM          One Pulse Mode
+             Timer Stops After One Update Event
+
+DIR          Counter Direction
+             0 = Up Counter
+             1 = Down Counter
+
+ARPE         Auto Reload Preload Enable
+             Buffer ARR Register
+
+CKD[1:0]     Clock Division
+             Select Timer Clock Division
+
+
+==============================================================
+
+2. PSC (Prescaler Register)
+--------------------------------------------------------------
+PSC[15:0]    Prescaler Value
+
+Formula:
+Timer Clock = Input Clock / (PSC + 1)
+
+Example:
+PSC = 179
+
+180MHz/(179+1)=1MHz
+
+
+==============================================================
+
+3. ARR (Auto Reload Register)
+--------------------------------------------------------------
+ARR[15:0]    Auto Reload Value
+
+Purpose
+-------
+Maximum Counter Value
+
+Example
+
+ARR = 999
+
+Counter
+
+0 → 999 → Overflow
+
+
+==============================================================
+
+4. CNT (Counter Register)
+--------------------------------------------------------------
+CNT[15:0]    Current Counter Value
+
+Purpose
+-------
+Stores Current Timer Count
+
+Example
+
+CNT = 245
+
+Means Timer counted 245 pulses.
+
+
+==============================================================
+
+5. SR (Status Register)
+--------------------------------------------------------------
+Bit Name     Description
+--------------------------------------------------------------
+UIF          Update Interrupt Flag
+
+CC1IF        Capture Compare Channel 1 Flag
+
+CC2IF        Capture Compare Channel 2 Flag
+
+CC3IF        Capture Compare Channel 3 Flag
+
+CC4IF        Capture Compare Channel 4 Flag
+
+TIF          Trigger Interrupt Flag
+
+CC1OF        Capture Compare 1 Overcapture Flag
+
+
+==============================================================
+
+6. DIER (DMA / Interrupt Enable Register)
+--------------------------------------------------------------
+Bit Name     Description
+--------------------------------------------------------------
+UIE          Update Interrupt Enable
+
+CC1IE        Capture Compare 1 Interrupt
+
+CC2IE        Capture Compare 2 Interrupt
+
+CC3IE        Capture Compare 3 Interrupt
+
+CC4IE        Capture Compare 4 Interrupt
+
+TIE          Trigger Interrupt Enable
+
+UDE          Update DMA Request Enable
+
+
+==============================================================
+
+7. EGR (Event Generation Register)
+--------------------------------------------------------------
+Bit Name     Description
+--------------------------------------------------------------
+UG           Update Generation
+
+CC1G         Capture Compare 1 Generation
+
+CC2G         Capture Compare 2 Generation
+
+CC3G         Capture Compare 3 Generation
+
+CC4G         Capture Compare 4 Generation
+
+TG           Trigger Generation
+
+Purpose
+-------
+Force Software Event
+
+
+==============================================================
+
+8. CCMR1 (Capture Compare Mode Register 1)
+--------------------------------------------------------------
+Bit Name     Description
+--------------------------------------------------------------
+CC1S         Capture Compare 1 Selection
+
+OC1M         Output Compare 1 Mode
+
+OC1PE        Output Compare Preload Enable
+
+OC1FE        Fast Enable
+
+CC2S         Capture Compare 2 Selection
+
+OC2M         Output Compare 2 Mode
+
+OC2PE        Output Compare Preload Enable
+
+Used For
+--------
+PWM
+Input Capture
+Output Compare
+
+
+==============================================================
+
+9. CCMR2 (Capture Compare Mode Register 2)
+--------------------------------------------------------------
+Contains Same Fields For
+
+Channel 3
+
+Channel 4
+
+Used For
+
+PWM
+
+Input Capture
+
+Output Compare
+
+
+==============================================================
+
+10. CCER (Capture Compare Enable Register)
+--------------------------------------------------------------
+Bit Name     Description
+--------------------------------------------------------------
+CC1E         Enable Channel 1 Output
+
+CC1P         Channel 1 Output Polarity
+
+CC2E         Enable Channel 2 Output
+
+CC2P         Channel 2 Output Polarity
+
+CC3E         Enable Channel 3 Output
+
+CC3P         Channel 3 Output Polarity
+
+CC4E         Enable Channel 4 Output
+
+CC4P         Channel 4 Output Polarity
+
+
+==============================================================
+
+11. CCR1 (Capture Compare Register 1)
+--------------------------------------------------------------
+CCR1[15:0]
+
+Stores
+
+PWM Duty Cycle
+
+Capture Value
+
+Output Compare Value
+
+
+CCR2
+--------------------------------------------------------------
+Same Function For Channel 2
+
+
+CCR3
+--------------------------------------------------------------
+Same Function For Channel 3
+
+
+CCR4
+--------------------------------------------------------------
+Same Function For Channel 4
+
+
+==============================================================
+
+12. BDTR (Break and Dead-Time Register)
+(TIM1 & TIM8 Only)
+--------------------------------------------------------------
+Bit Name     Description
+--------------------------------------------------------------
+DTG          Dead Time Generator
+
+LOCK         Lock Configuration
+
+OSSI         Off-State Selection Idle Mode
+
+OSSR         Off-State Selection Run Mode
+
+BKE          Break Enable
+
+BKP          Break Polarity
+
+AOE          Automatic Output Enable
+
+MOE          Main Output Enable
+
+Purpose
+-------
+Used For
+
+Motor Control
+
+Complementary PWM
+
+Dead Time
+
+Break Protection
+
+
+==============================================================
+```
+
+
+### 14.Two general-purpose 32-bit timers  
+32-bit General-Purpose Timers  
+
+├── TIM2  
+└── TIM5  
+```text
+==================== 32-BIT GENERAL-PURPOSE TIMERS ====================
+
+Timers
+-------
+TIM2
+TIM5
+
+Counter Width
+-------------
+32-bit
+
+Counter Range
+-------------
+0 → 4,294,967,295 (2^32 - 1)
+
+Main Registers
+--------------
+
+CR1     - Control Register 1
+          • Start/Stop Timer
+          • Up/Down Counter
+          • One Pulse Mode
+
+PSC     - Prescaler Register
+          • Divides Timer Clock
+
+ARR     - Auto Reload Register
+          • Maximum Counter Value
+
+CNT     - Counter Register
+          • Stores Current Count
+          • 32-bit Counter
+
+SR      - Status Register
+          • Update Flag
+          • Capture Compare Flags
+
+DIER    - DMA / Interrupt Enable Register
+          • Enable Interrupts
+          • Enable DMA
+
+CCR1    - Capture Compare Register 1
+CCR2    - Capture Compare Register 2
+CCR3    - Capture Compare Register 3
+CCR4    - Capture Compare Register 4
+
+          • PWM Duty Cycle
+          • Input Capture
+          • Output Compare
+
+CCMR1   - Capture Compare Mode Register 1
+CCMR2   - Capture Compare Mode Register 2
+
+CCER    - Capture Compare Enable Register
+
+EGR     - Event Generation Register
+
+Applications
+------------
+✓ Long Delay Generation
+✓ PWM Generation
+✓ Frequency Measurement
+✓ Pulse Width Measurement
+✓ Event Counting
+✓ Encoder Interface
+✓ Input Capture
+✓ Output Compare
+
+Example
+-------
+
+Timer Clock = 1 MHz
+
+PSC = 179
+
+ARR = 999999
+
+Timer Overflow
+
+0 → 999999 → Overflow
+
+Useful For
+
+• Long Time Delays
+• High Resolution Timing
+• Large Event Counting
+
+=======================================================================
+```
+
+
 
