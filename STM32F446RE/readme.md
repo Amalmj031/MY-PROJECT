@@ -148,6 +148,88 @@ No. The Cortex-M4 CPU communicates with the AHB bus. The AHB-to-APB bridges then
     ├── JDR4        (Injected Data Register 4)
     └── DR          (Data Register)
 
+    1. SR (Status Register)
+        Stores the current status of the ADC
+
+    | Bit         | Name                           |
+    |-------------|--------------------------------|
+    | **AWD**     | **Analog Watchdog Flag**       |
+    | **EOC**     | **End Of Conversion**          | 
+    | **JEOC**    | **Injected End Of Conversion** | 
+    | **OVR**     | **Overrun**                    |
+
+
+    1. AWD (Analog Watchdog Flag)
+    --------------------------------
+    Set when the ADC input voltage goes **above or below** the programmed threshold. Used for monitoring analog signals. 
+    • Monitors the analog input voltage.
+    • Compares the input with user-defined high and low thresholds.
+    • If the voltage exceeds the limits, the AWD flag is set.
+    • Can generate an interrupt to notify the CPU.
+    
+    Example:
+    Threshold : 1.0 V – 3.0 V
+    Input     : 3.4 V
+    Result    : AWD = 1
+    
+    2. EOC (End Of Conversion)
+    ---------------------------
+    Set when a regular ADC conversion is completed and the converted data is available in the **ADC_DR** register. |\
+    • Indicates that a regular ADC conversion has finished.
+    • The converted digital value is stored in ADC_DR.
+    • Software can now read the conversion result.
+    
+    Example:
+    Start ADC Conversion
+            ↓
+    Conversion Complete
+            ↓
+    EOC = 1
+            ↓
+    Read ADC_DR
+    
+    
+    3. JEOC (Injected End Of Conversion)
+    --------------------------------------
+     Set when an injected ADC conversion is completed and the converted data is available in the **ADC_JDRx** register. 
+    • Indicates that an injected conversion has finished.
+    • Result is stored in ADC_JDR1–ADC_JDR4.
+    • Mainly used for high-priority ADC conversions.
+    
+    Example:
+    Injected Trigger
+            ↓
+    Injected Conversion
+            ↓
+    JEOC = 1
+            ↓
+    Read ADC_JDRx
+    
+    
+    4. OVR (Overrun)
+    ------------------
+     Set when a new conversion result is written before the previous data is read from **ADC_DR**. The old data is lost                  (overwritten). 
+    • Occurs when ADC_DR is not read before the next conversion finishes.
+    • The new conversion result overwrites the previous one.
+    • The previous data is lost.
+    
+    Example:
+    
+    Conversion 1
+    ADC_DR = 1024
+    (Not Read)
+    
+    Conversion 2
+    ADC_DR = 2048
+    OVR = 1
+    
+    Result:
+    1024 is lost.
+    2048 remains in ADC_DR.
+    
+    
+    
+
     
 Each ADC has 12-bit resolution.  
 What is 12-bit?  
