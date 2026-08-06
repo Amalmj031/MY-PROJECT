@@ -1166,5 +1166,184 @@ Useful For
 =======================================================================
 ```
 
+### 15. Up to four I2Cs
 
+```text
+==================== I2C (Inter-Integrated Circuit) ====================
+
+STM32F446RE I2C Peripherals
+
+├── I2C1
+├── I2C2
+├── I2C3
+└── I2C4
+
+Purpose
+-------
+I2C is a synchronous serial communication protocol used to communicate
+with low-speed peripherals using only two wires.
+
+Communication Lines
+-------------------
+SCL  - Serial Clock Line
+SDA  - Serial Data Line
+
+Features
+--------
+✓ Two-wire communication
+✓ Master/Slave operation
+✓ Multi-master support
+✓ 7-bit and 10-bit addressing
+✓ Supports Standard, Fast and Fast+ modes
+✓ Acknowledge (ACK/NACK)
+✓ Interrupt support
+✓ DMA support
+
+Communication Speed
+-------------------
+Standard Mode     : 100 kHz
+Fast Mode         : 400 kHz
+Fast Mode Plus    : 1 MHz
+
+Applications
+------------
+✓ EEPROM
+✓ RTC (Real-Time Clock)
+✓ Temperature Sensors
+✓ LCD/OLED Displays
+✓ Accelerometer
+✓ Gyroscope
+✓ Pressure Sensors
+✓ Battery Management ICs
+
+=======================================================================
+```
+
+What does "Up to four I2Cs" mean?  
+
+Answer:  
+It means the STM32F446RE includes four independent I²C peripherals: I2C1, I2C2, I2C3, and I2C4. Each peripheral can communicate with I²C-compatible devices using only two wires (SDA and SCL).  
+
+Why is I²C popular?  
+
+Answer:  
+I²C uses only two wires regardless of the number of connected devices. Multiple slaves can share the same bus by using unique addresses, making it   simple and efficient for connecting sensors, EEPROMs, RTCs, and displays  
+
+
+### 16. 4 SPI peripherals and 3 I2S peripherals
+
+```text
+==================== SPI & I2S PERIPHERALS ====================
+
+SPI Peripherals
+---------------
+SPI1
+SPI2
+SPI3
+SPI4
+
+Purpose
+-------
+SPI (Serial Peripheral Interface) is a high-speed synchronous
+communication protocol used for communicating with external devices.
+
+Communication Lines
+-------------------
+SCK   - Serial Clock
+MOSI  - Master Out Slave In
+MISO  - Master In Slave Out
+NSS   - Slave Select (Chip Select)
+
+Applications
+------------
+✓ LCD Displays
+✓ SD Cards
+✓ Flash Memory
+✓ Sensors
+✓ ADC/DAC
+✓ Ethernet Modules
+
+Communication Speed
+-------------------
+Up to several MHz depending on peripheral clock.
+
+==============================================================
+
+I2S Peripherals
+---------------
+SPI2 → I2S2
+SPI3 → I2S3
+SPI4 → I2S4
+
+Purpose
+-------
+I2S (Inter-IC Sound) is a digital audio communication protocol.
+
+Used For
+--------
+✓ Audio Codec
+✓ Microphones
+✓ Speakers
+✓ Digital Amplifiers
+✓ Audio Processors
+
+Communication Lines
+-------------------
+CK      - Serial Clock
+WS      - Word Select (Left/Right Channel)
+SD      - Serial Data
+MCK     - Master Clock (Optional)
+
+Audio Formats
+-------------
+16-bit
+24-bit
+32-bit
+
+Audio Sample Rates
+------------------
+8 kHz
+16 kHz
+22.05 kHz
+44.1 kHz
+48 kHz
+96 kHz
+192 kHz
+
+Clock Source
+------------
+1. Internal Audio PLL (PLLI2S)
+   • Dedicated clock for audio
+   • High accuracy
+   • Low jitter
+
+2. External Clock
+   • Used when synchronization with another
+     audio device is required.
+
+Applications
+------------
+✓ MP3 Player
+✓ Voice Recorder
+✓ Bluetooth Audio
+✓ Home Theatre
+✓ Digital Audio Streaming
+
+==============================================================
+```
+
+What is I2S?  
+
+I2S = Inter-IC Sound  
+
+I2S is a communication protocol specifically designed for digital audio data.  
+
+Unlike SPI, which is a general-purpose communication protocol, I2S is optimized for transmitting audio samples.  
+
+The STM32F446RE datasheet says it has "4 SPI peripherals and 3 I2S peripherals." Does it have 7 separate peripherals?  
+
+Answer:  
+No. The STM32F446RE has 4 SPI hardware peripherals: SPI1, SPI2, SPI3, and SPI4. Among them, SPI2, SPI3,and SPI4   
+can be configured to operate in I2S   mode for digital audio communication. Therefore, the "3 I2S peripherals" are not additional hardware;  
+they are alternate operating modes of three   of the SPI peripherals.  
 
